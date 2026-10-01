@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的电话簿</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📞</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>我的电话簿</h1>
+    <button class="add-btn" onclick="openModal()">+ 添加</button>
+  </div>
+
+  <div class="search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="text" id="searchInput" placeholder="搜索姓名或电话..." oninput="render()">
+  </div>
+
+  <div id="contactList"></div>
+</div>
+
+<!-- 字母索引 -->
+<div class="letter-bar" id="letterBar"></div>
+
+<!-- 添加弹窗 -->
+<div class="modal-mask" id="modalMask">
+  <div class="modal">
+    <h2>添加联系人</h2>
+    <div class="form-group">
+      <label>姓名</label>
+      <input type="text" id="inpName" placeholder="输入姓名">
+    </div>
+    <div class="form-group">
+      <label>电话</label>
+      <input type="tel" id="inpPhone" placeholder="输入电话号码">
+    </div>
+    <div class="form-group">
+      <label>备注（可选）</label>
+      <input type="text" id="inpNote" placeholder="如：妈妈 / 同学">
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">取消</button>
+      <button class="btn-save" onclick="saveContact()">保存</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
